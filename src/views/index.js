@@ -1,0 +1,20 @@
+export {default as Commodity} from './Commodity'
+export {default as Home} from './Home'
+export {default as NotFound} from './NotFound'
+export {default as Setting} from './Setting'
+export {default as Login} from './Login'
+
+export {default as LoginLog} from './Home/LoginLog'
+export {default as SystemHome} from './Home/SystemHome'
+export {default as SystemInfo} from './Home/SystemInfo'
+export {default as UserSetting} from './Home/UserSetting'
+//设置的子路由
+export {default as SetLoginLog} from './Setting/LoginLog'
+export {default as SetSystemHome} from './Setting/SystemHome'
+export {default as SetSystemInfo} from './Setting/SystemInfo'
+export {default as SetUserSetting} from './Setting/UserSetting'
+//商品子路由
+export {default as ComSetLoginLog} from './Commodity/LoginLog'
+export {default as ComSetSystemHome} from './Commodity/SystemHome'
+export {default as ComSetSystemInfo} from './Commodity/SystemInfo'
+export {default as ComSetUserSetting} from './Commodity/UserSetting'
