@@ -6,7 +6,10 @@ import moment from 'moment'
 //引入xlsx，该包用于导出excel文件
 import XLSX from 'xlsx'
 
-export default class index extends Component {
+import {withRouter} from 'react-router-dom'
+
+@withRouter
+class index extends Component {
     constructor () {
         super()
         this.state = {
@@ -33,10 +36,14 @@ export default class index extends Component {
               }, {
                 title: '操作',
                 dataIndex: 'actions',
-                render() {
+                render: (text, record) => {
                   return (
                     <Button.Group>
-                      <Button type="primary">
+                      <Button type="primary" onClick={
+                        () => {
+                          this.props.history.push(`/admin/home/systemhome/edit/${record.id}`)
+                        }
+                      }>
                         <Icon type="edit" />
                         编辑
                       </Button>
@@ -105,3 +112,4 @@ export default class index extends Component {
         )
     }
 }
+export default index
