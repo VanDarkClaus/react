@@ -6,6 +6,7 @@ export {default as Login} from './Login'
 
 export {default as LoginLog} from './Home/LoginLog'
 export {default as SystemHome} from './Home/SystemHome'
+export {default as Hledit} from './Home/SystemHome/Hledit'
 export {default as SystemInfo} from './Home/SystemInfo'
 export {default as UserSetting} from './Home/UserSetting'
 //设置的子路由

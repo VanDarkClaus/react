@@ -9,6 +9,7 @@ import {
     SystemHome,
     SystemInfo,
     UserSetting,
+    Hledit,
 
     SetLoginLog,
     SetSystemHome,
@@ -51,13 +52,17 @@ export const homeRoutes =[
         component: LoginLog
     }, {
         path: '/admin/home/systemhome',
-        component: SystemHome
+        component: SystemHome,
+        exact: true
     }, {
         path: '/admin/home/systeminfo',
         component: SystemInfo
     }, {
         path: '/admin/home/usersetting',
         component: UserSetting
+    }, {
+        path: '/admin/home/systemhome/edit/:id',
+        component: Hledit
     }
     
 ]

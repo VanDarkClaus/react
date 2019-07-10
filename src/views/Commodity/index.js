@@ -14,6 +14,7 @@ export default class index extends Component {
                                     path={item.path}
                                     component={item.component}
                                     key={item.path}
+                                    exact= {item.exact}
                                 />
                     })
                 }
