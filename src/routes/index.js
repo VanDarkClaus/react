@@ -4,10 +4,21 @@ import {
     Commodity,
     Home,
     Setting,
+
     LoginLog,
     SystemHome,
     SystemInfo,
-    UserSetting
+    UserSetting,
+
+    SetLoginLog,
+    SetSystemHome,
+    SetSystemInfo,
+    SetUserSetting,
+
+    ComLoginLog,
+    ComSystemHome,
+    ComSystemInfo,
+    ComUserSetting
 } from '../views'
 //该路由不需要权限
 export const mainRoutes = [
@@ -55,16 +66,16 @@ export const homeRoutes =[
 export const settingRoutes =[
     {
         path: '/admin/setting/loginLog',
-        component: LoginLog
+        component: SetLoginLog
     }, {
         path: '/admin/setting/systemhome',
-        component: SystemHome
+        component: SetSystemHome
     }, {
         path: '/admin/setting/systeminfo',
-        component: SystemInfo
+        component: SetSystemInfo
     }, {
         path: '/admin/setting/usersetting',
-        component: UserSetting
+        component: SetUserSetting
     }
     
 ]
@@ -72,16 +83,16 @@ export const settingRoutes =[
 export const commodityRoutes =[
     {
         path: '/admin/commodity/loginLog',
-        component: LoginLog
+        component: ComLoginLog
     }, {
         path: '/admin/commodity/systemhome',
-        component: SystemHome
+        component: ComSystemHome
     }, {
         path: '/admin/commodity/systeminfo',
-        component: SystemInfo
+        component: ComSystemInfo
     }, {
         path: '/admin/commodity/usersetting',
-        component: UserSetting
+        component: ComUserSetting
     }
     
 ]
