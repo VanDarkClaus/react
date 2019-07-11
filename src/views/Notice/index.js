@@ -1,36 +1,40 @@
 import React, { Component } from 'react'
-import {Card, Button, List, Avatar} from 'antd'
+import {Card, Button, List, Badge} from 'antd'
+import { connect } from 'react-redux'
+import {loadNoticeData, markReaded, allMarkReaded} from '../../actions/noticeAction'
 
-export default class index extends Component {   
-    render() {
-        const data = [
-            {
-              title: 'Ant Design Title 1',
-            },
-            {
-              title: 'Ant Design Title 2',
-            },
-            {
-              title: 'Ant Design Title 3',
-            },
-            {
-              title: 'Ant Design Title 4',
-            },
-          ];
-          
+const mapStateProps = state => ({
+    state: state.noticeReducers
+  })  
+
+@connect(mapStateProps,{loadNoticeData, markReaded, allMarkReaded})
+class index extends Component {   
+    //在组件加载完后请求初始数据
+    componentDidMount () {
+      this.props.loadNoticeData()
+  }
+  render() {
         return (
-            <Card title="通知中心" extra={<Button>全部标记已读</Button>} style={{ width: '100%' }}>
+            <Card title="通知中心" extra={<Button onClick={() => {
+              this.props.allMarkReaded()
+            }}>全部标记已读</Button>} style={{ width: '100%' }}>
                 <List
+                    pagination={true}
                     itemLayout="horizontal"
-                    dataSource={data}
+                    dataSource={this.props.state}
                     renderItem={item => (
                     <List.Item>
                         <List.Item.Meta
-                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                        title={<a href="https://ant.design">{item.title}</a>}
-                        description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                          title={<Badge dot={!item.isComplated}>{item.title}</Badge>}
+                          description={item.description}
                         />
-                        <Button type='primary'>标记已读</Button>
+                        {
+                          item.isComplated?
+                          null:
+                          <Button type='primary' onClick={()=>{
+                            this.props.markReaded(item.id)
+                          }}>标记已读</Button>
+                        }
                     </List.Item>
                     )}
                 />
@@ -38,3 +42,5 @@ export default class index extends Component {
         )
     }
 }
+
+export default index

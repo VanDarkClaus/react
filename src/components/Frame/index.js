@@ -2,25 +2,29 @@ import React, { Component } from 'react'
 import { Layout, Menu, Icon, Dropdown, Avatar, Badge } from 'antd';
 import './Frame.less'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const { Header, Content, Sider } = Layout;
 
 
 //withRouter包装后为高阶组件，此为装饰着模式高级用法，系统报错
+const mapStateProps = state =>({
+    notice: state.noticeReducers
+})
+
 @withRouter
+@connect(mapStateProps)
 class index extends Component {
     //编程导航跳转功能
     menuHandle = (item) => {
-        // console.log(item)
         this.props.history.push(item.key)
     }
-    constructor() {
-        super()
-        //此为下拉菜单参数
-        this.menu = (
+    //此为下拉菜单参数
+    menu = () =>{
+        return(
             <Menu onClick={this.menuHandle}>
             <Menu.Item key="/admin/notice">
-                <Badge status="error">
+                <Badge dot={Boolean(this.props.notice.filter(item => !item.isComplated).length !== 0)}>
                     通知中心
                 </Badge>
             </Menu.Item>
@@ -31,8 +35,8 @@ class index extends Component {
                 退出登录
             </Menu.Item>
             </Menu>
-        );
-    }
+        )
+    };
     render() {
         return (
             <Layout>
@@ -40,7 +44,7 @@ class index extends Component {
                     <img src='images/logo.png' className='header-image' alt="logo"/>
                     <Dropdown overlay={this.menu} trigger={['click','hover']}>
                         <div>
-                        <Badge count={99}>
+                        <Badge count={this.props.notice.filter(item => !item.isComplated).length}>
                             <Avatar style={{ backgroundColor: '#87d068' }} icon="user" />
                             <span>欢迎你：嘻嘻嘻</span>
                             <Icon type="down" />
