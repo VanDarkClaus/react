@@ -1,23 +1,52 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Dropdown, Avatar, Badge } from 'antd';
 import './Frame.less'
 import {withRouter} from 'react-router-dom'
 
-// const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+
 
 //withRouter包装后为高阶组件，此为装饰着模式高级用法，系统报错
 @withRouter
 class index extends Component {
+    //编程导航跳转功能
     menuHandle = (item) => {
         // console.log(item)
         this.props.history.push(item.key)
+    }
+    constructor() {
+        super()
+        //此为下拉菜单参数
+        this.menu = (
+            <Menu onClick={this.menuHandle}>
+            <Menu.Item key="/admin/notice">
+                <Badge status="error">
+                    通知中心
+                </Badge>
+            </Menu.Item>
+            <Menu.Item key="/admin/home/usersetting">
+                用户设置
+            </Menu.Item>
+            <Menu.Item key='/login'>
+                退出登录
+            </Menu.Item>
+            </Menu>
+        );
     }
     render() {
         return (
             <Layout>
                 <Header className="header">
                     <img src='images/logo.png' className='header-image' alt="logo"/>
+                    <Dropdown overlay={this.menu} trigger={['click','hover']}>
+                        <div>
+                        <Badge count={99}>
+                            <Avatar style={{ backgroundColor: '#87d068' }} icon="user" />
+                            <span>欢迎你：嘻嘻嘻</span>
+                            <Icon type="down" />
+                        </Badge>
+                        </div>
+                    </Dropdown>
                 </Header>
                 <Layout>
                 <Sider width={200} style={{ background: '#fff' }}>

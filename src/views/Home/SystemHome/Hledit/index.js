@@ -24,15 +24,13 @@ class index extends Component {
     //初始化富文本编辑器
     initEditor = () => {
         const editor = this.editor = new E(this.editRef.current)
-        this.props.form.setFieldsValue({
-            articleContent: this.articleContent
-        })
         editor.customConfig.onchange = html => {
             this.props.form.setFieldsValue({
                 articleContent: html
             })
-          }
+        }
         editor.create();
+    
     }
     //请求数据
     getData = () =>{
@@ -53,6 +51,8 @@ class index extends Component {
                 author,
                 createAt
             })
+            //初始化文本框内容
+            this.editor.txt.html(this.articleContent)
         })
     }
     //提交表单
@@ -150,7 +150,7 @@ class index extends Component {
                                 message: '请输入内容',
                             },
                             ],
-                        })(<div ref={this.editRef}/>)}
+                        })(<div ref={this.editRef}></div>)}
                         </Form.Item>
 
                         <Form.Item {...tailFormItemLayout}>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import {HomeFrame} from '../../components'
+import {CommodityFrame} from '../../components'
 import {commodityRoutes} from '../../routes'
 import {Route, Switch, Redirect} from 'react-router-dom'
 
 export default class index extends Component {
     render() {
         return (
-            <HomeFrame>
+            <CommodityFrame>
                 <Switch>
                 {
                     commodityRoutes.map(item =>{
@@ -21,7 +21,7 @@ export default class index extends Component {
                 <Redirect from='/admin/commodity' to='/admin/commodity/systemhome' exact/>
                 <Redirect to='/404'/>
                 </Switch>
-            </HomeFrame>
+            </CommodityFrame>
         )
     }
 }

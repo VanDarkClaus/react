@@ -6,12 +6,6 @@ const { Sider, Content } = Layout;
 
 @withRouter
 class index extends Component {
-    constructor() {
-        super()
-        this.state = {
-            defaultSelectedKeys: '/admin/setting/systemhome'
-        }
-    }
     menuHandle = (item) => {
         this.props.history.push(item.key)
     }
@@ -19,7 +13,7 @@ class index extends Component {
         return (
             <Layout>
                 <Sider >
-                <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
+                <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.props.location.pathname]}>
                     <Menu.Item key="/admin/setting/systemhome">
                     <Icon type="video-camera" />
                     <span>系统首页</span>

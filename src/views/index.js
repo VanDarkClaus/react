@@ -3,6 +3,7 @@ export {default as Home} from './Home'
 export {default as NotFound} from './NotFound'
 export {default as Setting} from './Setting'
 export {default as Login} from './Login'
+export {default as Notice} from './Notice'
 
 export {default as LoginLog} from './Home/LoginLog'
 export {default as SystemHome} from './Home/SystemHome'

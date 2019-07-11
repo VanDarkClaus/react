@@ -4,6 +4,7 @@ import {
     Commodity,
     Home,
     Setting,
+    Notice,
 
     LoginLog,
     SystemHome,
@@ -43,6 +44,9 @@ export const adminRoutes = [
     }, {
         path: '/admin/setting',
         component: Setting
+    }, {
+        path: '/admin/notice',
+        component: Notice
     }
 ]
 //主页路由，侯龙改
