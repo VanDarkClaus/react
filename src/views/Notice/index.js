@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import {Card, Button, List, Badge} from 'antd'
 import { connect } from 'react-redux'
-import {loadNoticeData, markReaded, allMarkReaded} from '../../actions/noticeAction'
+import { markReaded, allMarkReaded} from '../../actions/noticeAction'
 
 const mapStateProps = state => ({
     state: state.noticeReducers
   })  
 
-@connect(mapStateProps,{loadNoticeData, markReaded, allMarkReaded})
+@connect(mapStateProps,{ markReaded, allMarkReaded})
 class index extends Component {   
-    //在组件加载完后请求初始数据
-    componentDidMount () {
-      this.props.loadNoticeData()
-  }
   render() {
         return (
             <Card title="通知中心" extra={<Button onClick={() => {

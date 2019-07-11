@@ -97,7 +97,9 @@ class index extends Component {
         };
         return (
             <div>
-                <Card title="编辑" extra={<Button type="primary">取消</Button>} style={{ width: '100%' }}>
+                <Card title="编辑" extra={<Button type="primary" onClick={()=>{
+                    this.props.history.push('/admin/home/systemhome')
+                }}>取消</Button>} style={{ width: '100%' }}>
                     <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                         <Form.Item label="标题">
                         {getFieldDecorator('title', {

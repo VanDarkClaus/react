@@ -1,6 +1,7 @@
 import actionTypes from '../actions/actionTypes'
 
-var inintState = [11]
+var inintState =[]
+
 
 export default (state = inintState, action) => {
         switch(action.type){

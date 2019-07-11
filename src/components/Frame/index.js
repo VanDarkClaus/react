@@ -3,6 +3,7 @@ import { Layout, Menu, Icon, Dropdown, Avatar, Badge } from 'antd';
 import './Frame.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {loadNoticeData} from '../../actions/noticeAction'
 
 const { Header, Content, Sider } = Layout;
 
@@ -13,11 +14,15 @@ const mapStateProps = state =>({
 })
 
 @withRouter
-@connect(mapStateProps)
+@connect(mapStateProps, {loadNoticeData})
 class index extends Component {
     //编程导航跳转功能
     menuHandle = (item) => {
         this.props.history.push(item.key)
+    }
+     //在组件加载完后请求初始数据
+    componentDidMount () {
+        this.props.loadNoticeData()
     }
     //此为下拉菜单参数
     menu = () =>{
