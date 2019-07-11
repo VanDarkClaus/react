@@ -6,6 +6,7 @@ const ajax = axios.create ({
 
 ajax.interceptors.response.use(resp => {
     if(resp.data.res_code === 200 && resp.status === 200){
+        console.log(resp)
         return resp.data.res_body
     }
 })

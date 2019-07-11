@@ -9,7 +9,7 @@ class index extends Component {
     constructor() {
         super()
         this.state = {
-            defaultSelectedKeys: '/admin/commodity/systemhome'
+            defaultSelectedKeys: '/admin/commodity/cyproductlist'
         }
     }
     menuHandle = (item) => {
@@ -19,37 +19,37 @@ class index extends Component {
         return (
             <Layout>
                 <Sider >
-                <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
-                    <Menu.Item key="/admin/commodity/systemhome">
-                    <Icon type="video-camera" />
-                    <span>系统首页</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/commodity/loginLog">
-                    <Icon type="user" />
-                    <span>登录信息</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/commodity/systeminfo">
-                    <Icon type="upload" />
-                    <span>系统信息</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/commodity/usersetting">
-                    <Icon type="upload" />
-                    <span>用户设置</span>
-                    </Menu.Item>
-                </Menu>
+                    <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
+                        <Menu.Item key="/admin/commodity/cyproductlist">
+                            <Icon type="unordered-list" />
+                            <span>商品列表</span>
+                        </Menu.Item>
+                        <Menu.Item key="/admin/commodity/cyaddproduct">
+                            <Icon type="plus" />
+                            <span>添加商品</span>
+                        </Menu.Item>
+                        <Menu.Item key="/admin/commodity/cyproductlist/detail/:id">
+                            <Icon type="dashboard" />
+                            <span>商品详情</span>
+                        </Menu.Item>
+                        <Menu.Item key="/admin/commodity/cyusersetting">
+                            <Icon type="setting" />
+                            <span>用户设置</span>
+                        </Menu.Item>
+                    </Menu>
                 </Sider>
                 <Layout>
               
-                <Content
-                    style={{
-                    margin: '24px 16px',
-                    padding: 24,
-                    background: '#fff',
-                    minHeight: 280,
-                    }}
-                >
-                    {this.props.children}
-                </Content>
+                    <Content
+                        style={{
+                            margin: '24px 16px',
+                            padding: 24,
+                            background: '#fff',
+                            minHeight: 280,
+                        }}
+                    >
+                        {this.props.children}
+                    </Content>
                 </Layout>
             </Layout>
         )
