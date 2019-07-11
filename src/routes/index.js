@@ -17,11 +17,12 @@ import {
     SetSystemInfo,
     SetUserSetting,
 
-    ComLoginLog,
-    ComSystemHome,
-    ComSystemInfo,
-    ComUserSetting
+    CYProductDetail,
+    CYProductList,
+    CYUserSetting,
+    CYAddProduct
 } from '../views'
+
 //该路由不需要权限
 export const mainRoutes = [
     {
@@ -91,17 +92,18 @@ export const settingRoutes =[
 //商品路由，陈益改
 export const commodityRoutes =[
     {
-        path: '/admin/commodity/loginLog',
-        component: ComLoginLog
+        path: '/admin/commodity/cyproductlist',
+        component: CYProductList,
+        exact: true
     }, {
-        path: '/admin/commodity/systemhome',
-        component: ComSystemHome
+        path: '/admin/commodity/cyaddproduct',
+        component: CYAddProduct
     }, {
-        path: '/admin/commodity/systeminfo',
-        component: ComSystemInfo
+        path: '/admin/commodity/cyproductlist/detail/:id',
+        component: CYProductDetail
     }, {
-        path: '/admin/commodity/usersetting',
-        component: ComUserSetting
+        path: '/admin/commodity/cyusersetting',
+        component: CYUserSetting
     }
     
 ]
