@@ -126,16 +126,24 @@ export const commodityRoutes =[
     {
         path: '/admin/commodity/cyproductlist',
         component: CYProductList,
-        exact: true
+        exact: true,
+        title: '书籍列表',
+        icon: 'unordered-list'
     }, {
         path: '/admin/commodity/cyaddproduct',
-        component: CYAddProduct
+        component: CYAddProduct,
+        title: '添加书籍',
+        icon: 'plus'
     }, {
         path: '/admin/commodity/cyproductlist/detail/:id',
-        component: CYProductDetail
+        component: CYProductDetail,
+        title: '书籍详情',
+        icon: 'appstore'
     }, {
         path: '/admin/commodity/cyusersetting',
-        component: CYUserSetting
+        component: CYUserSetting,
+        title: '数据可视化',
+        icon: 'dashboard'
     }
     
 ]
