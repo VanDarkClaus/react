@@ -18,11 +18,12 @@ import {
     SetSystemInfo,
     SetUserSetting,
 
-    ComLoginLog,
-    ComSystemHome,
-    ComSystemInfo,
-    ComUserSetting
+    CYProductDetail,
+    CYProductList,
+    CYUserSetting,
+    CYAddProduct
 } from '../views'
+
 //该路由不需要权限
 export const mainRoutes = [
     {
@@ -123,25 +124,26 @@ export const settingRoutes =[
 //商品路由，陈益改
 export const commodityRoutes =[
     {
-        path: '/admin/commodity/loginLog',
-        component: ComLoginLog,
-        title: '用户设置',
-        icon: 'setting'
+        path: '/admin/commodity/cyproductlist',
+        component: CYProductList,
+        exact: true,
+        title: '书籍列表',
+        icon: 'unordered-list'
     }, {
-        path: '/admin/commodity/systemhome',
-        component: ComSystemHome,
-        title: '用户设置',
-        icon: 'setting'
+        path: '/admin/commodity/cyaddproduct',
+        component: CYAddProduct,
+        title: '添加书籍',
+        icon: 'plus'
     }, {
-        path: '/admin/commodity/systeminfo',
-        component: ComSystemInfo,
-        title: '用户设置',
-        icon: 'setting'
+        path: '/admin/commodity/cyproductlist/detail/:id',
+        component: CYProductDetail,
+        title: '书籍详情',
+        icon: 'appstore'
     }, {
-        path: '/admin/commodity/usersetting',
-        component: ComUserSetting,
-        title: '用户设置',
-        icon: 'setting'
+        path: '/admin/commodity/cyusersetting',
+        component: CYUserSetting,
+        title: '数据可视化',
+        icon: 'dashboard'
     }
     
 ]

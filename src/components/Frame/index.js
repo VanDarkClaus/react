@@ -79,11 +79,10 @@ class index extends Component {
                         }
                     </Menu>
                 </Sider>
-                <Layout style={{ padding: '24px' }}>
+                <Layout>
                     <Content
                     style={{
                         background: '#fff',
-                        padding: 24,
                         margin: 0,
                         height: '100%',
                     }}

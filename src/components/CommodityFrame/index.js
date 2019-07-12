@@ -7,6 +7,12 @@ const { Sider, Content } = Layout;
 
 @withRouter
 class index extends Component {
+    constructor() {
+        super()
+        this.state = {
+            defaultSelectedKeys: '/admin/commodity/cyproductlist'
+        }
+    }
     menuHandle = (item) => {
         this.props.history.push(item.key)
     }
@@ -30,16 +36,16 @@ class index extends Component {
                 </Sider>
                 <Layout>
               
-                <Content
-                    style={{
-                    margin: '24px 16px',
-                    padding: 24,
-                    background: '#fff',
-                    minHeight: 280,
-                    }}
-                >
-                    {this.props.children}
-                </Content>
+                    <Content
+                        style={{
+                            margin: '24px 16px',
+                            padding: 24,
+                            background: '#fff',
+                            minHeight: 280,
+                        }}
+                    >
+                        {this.props.children}
+                    </Content>
                 </Layout>
             </Layout>
         )
