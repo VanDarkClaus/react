@@ -11,6 +11,7 @@ import {
     SystemInfo,
     UserSetting,
     Hledit,
+    DashBoard,
 
     SetLoginLog,
     SetSystemHome,
@@ -35,39 +36,62 @@ export const mainRoutes = [
 ]
 
 //该路由需要权限
+//路由配置说明，title为左侧列表显示数据，notLeftTable: true表示不显示，icon为显示矢量图标
 export const adminRoutes = [
-   {
-        path: '/admin/commodity',
-        component: Commodity
-    }, {
+    {
         path: '/admin/home',
-        component: Home
+        component: Home,
+        title: '主页',
+        icon: 'setting'
+    }, {
+        path: '/admin/commodity',
+        component: Commodity,
+        title: '商品',
+        icon: 'setting'
     }, {
         path: '/admin/setting',
-        component: Setting
+        component: Setting,
+        title: '设置',
+        icon: 'setting'
     }, {
         path: '/admin/notice',
-        component: Notice
+        component: Notice,
+        notLeftTable: true
     }
 ]
 //主页路由，侯龙改
 export const homeRoutes =[
     {
         path: '/admin/home/loginLog',
-        component: LoginLog
+        component: LoginLog,
+        title: '登录信息',
+        icon: 'setting'
     }, {
         path: '/admin/home/systemhome',
         component: SystemHome,
-        exact: true
+        exact: true,
+        title: '系统首页',
+        icon: 'setting'
     }, {
         path: '/admin/home/systeminfo',
-        component: SystemInfo
+        component: SystemInfo,
+        title: '系统信息',
+        icon: 'setting'
     }, {
         path: '/admin/home/usersetting',
-        component: UserSetting
+        component: UserSetting,
+        title: '用户设置',
+        icon: 'setting'
     }, {
         path: '/admin/home/systemhome/edit/:id',
-        component: Hledit
+        component: Hledit,
+        // 判断是否是左边导航栏
+        notLeftTable: true,
+    }, {
+        path: '/admin/home/dashboard',
+        component: DashBoard,
+        title: '仪表盘',
+        icon: 'setting'
     }
     
 ]
@@ -76,16 +100,24 @@ export const homeRoutes =[
 export const settingRoutes =[
     {
         path: '/admin/setting/loginLog',
-        component: SetLoginLog
+        component: SetLoginLog,
+        title: '用户设置',
+        icon: 'setting'
     }, {
         path: '/admin/setting/systemhome',
-        component: SetSystemHome
+        component: SetSystemHome,
+        title: '用户设置',
+        icon: 'setting'
     }, {
         path: '/admin/setting/systeminfo',
-        component: SetSystemInfo
+        component: SetSystemInfo,
+        title: '用户设置',
+        icon: 'setting'
     }, {
         path: '/admin/setting/usersetting',
-        component: SetUserSetting
+        component: SetUserSetting,
+        title: '用户设置',
+        icon: 'setting'
     }
     
 ]

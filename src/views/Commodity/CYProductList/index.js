@@ -60,8 +60,6 @@ columns = [
     }
 ]
 
-
-
 // 获取数据列表数据
 componentDidMount() {
     CY_getProductList()
@@ -81,7 +79,7 @@ genExcelData = (list) => {
         data.push([item.id, item.image, item.title, item.amount])
     })
     
-    // 设置data
+    // 设置更新 data
     this.setState({
         data
     })

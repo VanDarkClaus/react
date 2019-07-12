@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Icon } from 'antd';
 import {withRouter} from 'react-router-dom'
+import {commodityRoutes} from '../../routes'
 
 const { Sider, Content } = Layout;
 
@@ -19,24 +20,19 @@ class index extends Component {
         return (
             <Layout>
                 <Sider >
-                    <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.state.defaultSelectedKeys]}>
-                        <Menu.Item key="/admin/commodity/cyproductlist">
-                            <Icon type="unordered-list" />
-                            <span>商品列表</span>
-                        </Menu.Item>
-                        <Menu.Item key="/admin/commodity/cyaddproduct">
-                            <Icon type="plus" />
-                            <span>添加商品</span>
-                        </Menu.Item>
-                        <Menu.Item key="/admin/commodity/cyproductlist/detail/:id">
-                            <Icon type="dashboard" />
-                            <span>商品详情</span>
-                        </Menu.Item>
-                        <Menu.Item key="/admin/commodity/cyusersetting">
-                            <Icon type="setting" />
-                            <span>用户设置</span>
-                        </Menu.Item>
-                    </Menu>
+                <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.props.location.pathname]}>
+                      {/* 该处通过循环渲染更方便简洁 */}
+                      {
+                        commodityRoutes.filter(item => !item.notLeftTable).map(item =>{
+                            return(
+                                <Menu.Item key={item.path}>
+                                <Icon type={item.icon} />
+                                <span>{item.title}</span>
+                                </Menu.Item>
+                            )
+                        })
+                    }
+                </Menu>
                 </Sider>
                 <Layout>
               
