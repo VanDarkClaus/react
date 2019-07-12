@@ -4,6 +4,7 @@ import './Frame.less'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loadNoticeData} from '../../actions/noticeAction'
+import { adminRoutes} from '../../routes'
 
 const { Header, Content, Sider } = Layout;
 
@@ -58,25 +59,24 @@ class index extends Component {
                     </Dropdown>
                 </Header>
                 <Layout>
-                <Sider width={200} style={{ background: '#fff' }}>
+                <Sider width={120} style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
                     onClick={this.menuHandle}
                     defaultSelectedKeys={[this.props.location.pathname]}
                     style={{ height: '100%', borderRight: 0 }}
                     >
-                        <Menu.Item key="/admin/home">
-                            <Icon type="setting" />
-                            <span>主页</span>
-                        </Menu.Item>
-                        <Menu.Item key="/admin/commodity">
-                            <Icon type="ordered-list" />
-                            <span>商品</span>
-                        </Menu.Item>
-                        <Menu.Item key="/admin/setting">
-                            <Icon type="setting" />
-                            <span>设置</span>
-                        </Menu.Item>
+                        {/* 循环渲染左侧导航 */}
+                        {
+                            adminRoutes.filter(item => !item.notLeftTable).map(item => {
+                                return(
+                                    <Menu.Item key={item.path}>
+                                        <Icon type={item.icon} />
+                                        <span>{item.title}</span>
+                                    </Menu.Item>
+                                )
+                            })
+                        }
                     </Menu>
                 </Sider>
                 <Layout style={{ padding: '24px' }}>

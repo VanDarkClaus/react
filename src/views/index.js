@@ -10,6 +10,7 @@ export {default as SystemHome} from './Home/SystemHome'
 export {default as Hledit} from './Home/SystemHome/Hledit'
 export {default as SystemInfo} from './Home/SystemInfo'
 export {default as UserSetting} from './Home/UserSetting'
+export {default as DashBoard} from './Home/DashBoard'
 //设置的子路由
 export {default as SetLoginLog} from './Setting/LoginLog'
 export {default as SetSystemHome} from './Setting/SystemHome'

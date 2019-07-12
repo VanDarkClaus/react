@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd'
 import {withRouter} from 'react-router-dom'
+import {homeRoutes} from '../../routes'
 
 const { Sider, Content } = Layout;
 
@@ -12,24 +13,21 @@ class index extends Component {
     render() {
         return (
             <Layout>
-                <Sider >
+                <Sider width={120}>
                 <Menu theme="dark" mode="inline" onClick={this.menuHandle} defaultSelectedKeys={[this.props.location.pathname]}>
-                    <Menu.Item key="/admin/home/systemhome">
-                    <Icon type="video-camera" />
-                    <span>系统首页</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/home/loginLog">
-                    <Icon type="user" />
-                    <span>登录信息</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/home/systeminfo">
-                    <Icon type="upload" />
-                    <span>系统信息</span>
-                    </Menu.Item>
-                    <Menu.Item key="/admin/home/usersetting">
-                    <Icon type="upload" />
-                    <span>用户设置</span>
-                    </Menu.Item>
+
+
+                    {/* 该处通过循环渲染更方便简洁 */}
+                    {
+                        homeRoutes.filter(item => !item.notLeftTable).map(item =>{
+                            return(
+                                <Menu.Item key={item.path}>
+                                <Icon type={item.icon} />
+                                <span>{item.title}</span>
+                                </Menu.Item>
+                            )
+                        })
+                    }
                 </Menu>
                 </Sider>
                 <Layout>
